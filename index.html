@@ -1,0 +1,254 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title>Enquiry Form</title>
+
+    <style>
+        body {
+            background-color: #a8d5e5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .header {
+            padding: 10px;
+            /* Reduced from 20px to 10px */
+        }
+
+        .header img {
+            max-width: 10%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            /* Reduced top and bottom margin from 50px to 20px */
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            text-align: left;
+            display: block;
+            /* Ensures the label is on a new line */
+        }
+
+        .required::after {
+            content: " *";
+            color: red;
+        }
+
+        input[type=text],input[type=email],textarea,select
+        {
+            width: calc(100% - 22px);
+            /* Adjusts width to not touch the container sides */
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        } 
+      
+        .checkbox-group {
+            display: flex;
+            /* Changed from block to flex for inline display */
+            align-items: center;
+            /* Aligns items vertically */
+            margin-bottom: 20px;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            /* Removes bottom margin */
+            margin-right: 10px;
+            /* Adds space between label and checkbox */
+        }
+
+        input[type=checkbox] {
+            margin: 2px;
+            /* Removes left margin */
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        /* Hover effect for input fields */
+        input[type=text]:hover,input[type=email]:hover,textarea,select:hover 
+        {
+            border-color: #4CAF50; /* Green border on hover */
+            transition: border-color 0.3s; /* Smooth transition for color change */
+        }
+
+        /* Cursor animations for clickable elements */
+        input[type=submit],.checkbox-group label,.container h2 {
+            cursor: pointer; /* Changes cursor to pointer to indicate clickable */
+        }
+
+
+        /* Hover effect for submit button */
+        input[type=submit]:hover {
+            background-color: #45a049; /* Darker green background on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+            transform: translateY(-2px); /* Slightly raises the button */
+            transition: all 0.3s; /* Smooth transition for all changes */
+        }
+
+
+        /* Focus effect for input fields */
+        input[type=text]:focus,input[type=email]:focus,textarea:focus,select:focus
+        {
+            outline: none; /* Removes default focus outline */
+            border-color: #4CAF50; /* Green border to indicate focus */
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Glow effect */
+        }
+
+
+        /* Adjusted styling for checkbox label alignment */
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+
+        input[type=checkbox] {
+            margin-right: 10px;
+        }
+        textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* Allows the user to resize the textarea vertically */
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://live.ilearningscareer.com/" target="_blank">
+            <img src="https://d502jbuhuh9wk.cloudfront.net/logos/650c295ce4b081959b005cb2.png?v=1" alt="iLearnings Logo">
+        </a>
+    </div>
+    <div class="container">
+        <h2>Enquire Now</h2>
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5g00000LOz8D" method="POST">
+            <!-- Hidden Inputs -->
+            <input type="hidden" name="oid" value="00D5g00000LOz8D">
+            <input type="hidden" name="retURL" value="http://live.ilearningscareer.com/s/store">
+            <!-- Form Fields -->
+            <label for="first_name" class="required">First Name</label>
+            <input id="first_name" maxlength="40" name="first_name" type="text" required>
+
+            <label for="last_name" class="required">Last Name</label>
+            <input id="last_name" maxlength="80" name="last_name" type="text" required>
+
+            <label for="email" class="required">Email</label>
+            <input id="email" maxlength="80" name="email" type="email" required>
+
+            <label for="phone" class="required">Phone</label>
+            <input id="phone" maxlength="40" name="phone" size="20" type="text" required>
+
+            <label for="college_name" class="required">College Name</label>
+            <input id="college_name" maxlength="200" name="college_name" size="20" type="text" required>
+
+            <label for="12th_percentage" class="required">12th Percentage</label>
+            <input id="12th_percentage" name="12th_percentage" size="20" type="text" required>
+
+            <label for="country" class="required">Country </label>
+            <input  id="country" maxlength="40" name="country" size="20" type="text" required>
+
+            <label for="state" class="required">State/Province</label>
+            <input  id="state" maxlength="20" name="state" size="20" type="text"required>
+
+            <label for="qualification" class="required">Qualification</label>
+            <select id="qualification" name="qualification" title="Qualification" required>
+                <option value="">--None--</option>
+                <option value="B.E/Btech">B.E/Btech</option>
+                <option value="B.SC/B.Com/BCA/BBM/BBS/B.A/M.Com">B.SC/B.Com/BCA/BBM/BBS/B.A/M.Com</option>
+                <option value="M.E/MTech">M.E/MTech</option>
+                <option value="MBA/MCA">MBA/MCA</option>   
+            </select>
+
+           <label for="00N5g00000iX0ow" class="required">Designation</label>
+<select id="00N5g00000iX0ow" name="00N5g00000iX0ow" required>
+    <option value="">--Select Designation--</option>
+  <option value="Salesforce Intern">Salesforce Intern</option>
+  <option value="Front-end developer Intern">Front-end developer Intern</option>
+  <option value="Back-end developer Intern">Back-end developer Intern</option>
+  <option value="Web developer Intern">Web developer Intern</option>
+  <option value="Digital Marketing Intern">Digital Marketing Intern</option>
+  <option value="Full-stack developer Intern">Full-stack developer Intern</option>
+  <option value="Big data developer Intern">Big data developer Intern</option>
+  <option value="DevOps developer Intern">DevOps developer Intern</option>
+  <option value="Data Science/AI/M.L Intern">Data Science/AI/M.L Intern</option>
+  <option value="Cyber Security Intern">Cyber Security Intern</option>
+  <option value="App Developer Intern">App Developer Intern</option>
+  <option value="HR Intern">HR Intern</option>
+  <option value="SMS/Mail Marketing Intern">SMS/Mail Marketing Intern</option>
+  <option value="Short Film Maker/Ads Intern">Short Film Maker/Ads Intern</option>
+  <option value="Content Writer Intern">Content Writer Intern</option>
+  <option value="Technical Support Intern">Technical Support Intern</option>
+  <option value="Process Associate Intern">Process Associate Intern</option>
+  <option value="Social Media Promotion Intern">Social Media Promotion Intern</option>
+  <option value="Digital Content Creator Intern">Digital Content Creator Intern</option>
+  <option value="Marketing Intern">Marketing Intern</option>
+  <option value="Business Development Associate Intern">Business Development Associate Intern</option>
+  <option value="UI/UX Developer Intern">UI/UX Developer Intern</option>
+  <option value="YouTube Handler Intern">YouTube Handler Intern</option>
+  <option value="Salesforce Intern Intern">Salesforce Intern Intern</option>
+  <option value="Social Media Manager Intern">Social Media Manager Intern</option>
+  <option value="Digital Marketer Intern">Digital Marketer Intern</option>
+  <option value="Business Development Intern Intern">Business Development Intern Intern</option>
+  <option value="Graphic Designer Intern">Graphic Designer Intern</option>
+  <option value="Video Editor Intern">Video Editor Intern</option>
+  <option value="Youtube Manager Intern">Youtube Manager Intern</option>
+  <option value="SEO Executive Intern">SEO Executive Intern</option>
+  <option value="Telecaller Intern">Telecaller Intern</option>
+  <option value="Sales Executive Intern">Sales Executive Intern</option>
+  <option value="College Coordinator Intern">College Coordinator Intern</option>
+  <option value="Event Manager Intern">Event Manager Intern</option>
+  <option value="Full Stack Developer Intern">Full Stack Developer Intern</option>
+  <option value="Android Developer Intern">Android Developer Intern</option>
+  <option value="IOS Developer Intern">IOS Developer Intern</option>
+    </select>
+
+            <div class="checkbox-group">
+                <label for="00N5g00000iX0oh">  
+                    Are you interested in Free Demo session:
+                    <input id="00N5g00000iX0oh" name="00N5g00000iX0oh" type="checkbox" value="1">
+                </label>
+            </div>
+            <!-- Submit Button -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
