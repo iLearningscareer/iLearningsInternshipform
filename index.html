@@ -12,7 +12,6 @@
 
         .header {
             padding: 10px;
-            /* Reduced from 20px to 10px */
         }
 
         .header img {
@@ -23,7 +22,6 @@
         .container {
             max-width: 600px;
             margin: 20px auto;
-            /* Reduced top and bottom margin from 50px to 20px */
             background: #fff;
             padding: 20px;
             border-radius: 8px;
@@ -44,7 +42,6 @@
             margin-top: 10px;
             text-align: left;
             display: block;
-            /* Ensures the label is on a new line */
         }
 
         .required::after {
@@ -52,35 +49,28 @@
             color: red;
         }
 
-        input[type=text],input[type=email],textarea,select
-        {
+        input[type=text], input[type=email], textarea, select {
             width: calc(100% - 22px);
-            /* Adjusts width to not touch the container sides */
             padding: 10px;
             margin-top: 5px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
-        } 
-      
+        }
+
         .checkbox-group {
             display: flex;
-            /* Changed from block to flex for inline display */
             align-items: center;
-            /* Aligns items vertically */
             margin-bottom: 20px;
         }
 
         .checkbox-group label {
             margin: 0;
-            /* Removes bottom margin */
             margin-right: 10px;
-            /* Adds space between label and checkbox */
         }
 
         input[type=checkbox] {
             margin: 2px;
-            /* Removes left margin */
         }
 
         input[type=submit] {
@@ -97,38 +87,28 @@
             background-color: #45a049;
         }
 
-        /* Hover effect for input fields */
-        input[type=text]:hover,input[type=email]:hover,textarea,select:hover 
-        {
-            border-color: #4CAF50; /* Green border on hover */
-            transition: border-color 0.3s; /* Smooth transition for color change */
+        input[type=text]:hover, input[type=email]:hover, textarea, select:hover {
+            border-color: #4CAF50;
+            transition: border-color 0.3s;
         }
 
-        /* Cursor animations for clickable elements */
-        input[type=submit],.checkbox-group label,.container h2 {
-            cursor: pointer; /* Changes cursor to pointer to indicate clickable */
+        input[type=submit], .checkbox-group label, .container h2 {
+            cursor: pointer;
         }
 
-
-        /* Hover effect for submit button */
         input[type=submit]:hover {
-            background-color: #45a049; /* Darker green background on hover */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
-            transform: translateY(-2px); /* Slightly raises the button */
-            transition: all 0.3s; /* Smooth transition for all changes */
+            background-color: #45a049;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            transition: all 0.3s;
         }
 
-
-        /* Focus effect for input fields */
-        input[type=text]:focus,input[type=email]:focus,textarea:focus,select:focus
-        {
-            outline: none; /* Removes default focus outline */
-            border-color: #4CAF50; /* Green border to indicate focus */
-            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Glow effect */
+        input[type=text]:focus, input[type=email]:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
         }
 
-
-        /* Adjusted styling for checkbox label alignment */
         .checkbox-group label {
             display: flex;
             align-items: center;
@@ -136,20 +116,41 @@
             margin-top: 10px;
         }
 
-
         input[type=checkbox] {
             margin-right: 10px;
         }
+
         textarea {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical; /* Allows the user to resize the textarea vertically */
-}
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
     </style>
+
+    <script>
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            const phonePattern = /^\d{10}$/;
+
+            if (!emailPattern.test(email) || !email.endsWith('.com')) {
+                alert("Please enter a valid email address that ends with '.com'.");
+                return false;
+            }
+
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid phone number.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </head>
 <body>
     <div class="header">
@@ -159,7 +160,7 @@
     </div>
     <div class="container">
         <h2>iLearnings Internship Program</h2>
-        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5g00000LOz8D" method="POST">
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5g00000LOz8D" method="POST" onsubmit="return validateForm()">
             <!-- Hidden Inputs -->
             <input type="hidden" name="oid" value="00D5g00000LOz8D">
             <input type=hidden name="retURL" value="http://ilearningscareer.github.io/ilearningsThankYouPage/">
@@ -183,7 +184,7 @@
             <label for="12th_percentage" class="required">12th Percentage</label>
             <input id="00NJ1000000ZTre" name="00NJ1000000ZTre" size="20" type="text" required>
 
-             <label for="country_code" class="required">Country</label><select  id="country_code" name="country_code" required><option value="">--None--</option><option value="AF">Afghanistan</option>
+              <label for="country_code" class="required">Country</label><select  id="country_code" name="country_code" required><option value="">--None--</option><option value="AF">Afghanistan</option>
 <option value="AX">Aland Islands</option>
 <option value="AL">Albania</option>
 <option value="DZ">Algeria</option>
@@ -420,6 +421,7 @@
 <option value="ZW">Zimbabwe</option>
 </select>
 
+
             <label for="qualification" class="required">Qualification</label>
             <select id="00NJ1000000ZTrZ" name="00NJ1000000ZTrZ" title="Qualification" required>
                 <option value="">--None--</option>
@@ -448,7 +450,9 @@
 <option value="UI/UX Developer Intern">UI/UX Developer Intern</option>
 <option value="YouTube Intern">YouTube Intern</option>
 <option value="Graphic Designer Intern">Graphic Designer Intern</option>
-<option value="Video Editor Intern">Video Editor Intern</option>
+<option
+
+ value="Video Editor Intern">Video Editor Intern</option>
 <option value="SEO Executive Intern">SEO Executive Intern</option>
 <option value="Sales Executive Intern">Sales Executive Intern</option>
 <option value="College Coordinator Intern">College Coordinator Intern</option>
@@ -471,3 +475,4 @@
     </div>
 </body>
 </html>
+
