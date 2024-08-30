@@ -135,6 +135,7 @@
         function validateForm() {
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
+            const tpoPhone = document.getElementById('00NJ1000000aheZ').value;
             const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             const phonePattern = /^\d{10}$/;
 
@@ -145,6 +146,11 @@
 
             if (!phonePattern.test(phone)) {
                 alert("Please enter a valid phone number.");
+                return false;
+            }
+
+            if (!phonePattern.test(tpoPhone)) {
+                alert("Please enter a valid TPO Professor Number.");
                 return false;
             }
 
@@ -163,9 +169,10 @@
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00D5g00000LOz8D" method="POST" onsubmit="return validateForm()">
             <!-- Hidden Inputs -->
             <input type="hidden" name="oid" value="00D5g00000LOz8D">
-            <input type=hidden name="retURL" value="http://ilearningscareer.github.io/ilearningsThankYouPage/">
+            <input type="hidden" name="retURL" value="http://ilearningscareer.github.io/ilearningsThankYouPage/">
             <input id="lead_source" name="lead_source" type="hidden" value="Web" />
             <input type="hidden" name="recordType" id="recordType" value="012J1000000PEk8">
+
             <!-- Form Fields -->
             <label for="first_name" class="required">First Name</label>
             <input id="first_name" maxlength="40" name="first_name" type="text" required>
@@ -185,7 +192,9 @@
             <label for="12th_percentage" class="required">12th Percentage</label>
             <input id="00NJ1000000ZTre" name="00NJ1000000ZTre" size="20" type="text" required>
 
-              <label for="country_code" class="required">Country</label><select  id="country_code" name="country_code" required><option value="">--None--</option><option value="AF">Afghanistan</option>
+            <label for="country_code" class="required">Country</label>
+            <select id="country_code" name="country_code" required>
+                <option value="">--None--</option><option value="AF">Afghanistan</option>
 <option value="AX">Aland Islands</option>
 <option value="AL">Albania</option>
 <option value="DZ">Algeria</option>
@@ -420,8 +429,7 @@
 <option value="YE">Yemen</option>
 <option value="ZM">Zambia</option>
 <option value="ZW">Zimbabwe</option>
-</select>
-
+            </select>
 
             <label for="qualification" class="required">Qualification</label>
             <select id="00NJ1000000ZTrZ" name="00NJ1000000ZTrZ" title="Qualification" required>
@@ -432,39 +440,30 @@
                 <option value="MBA/MCA">MBA/MCA</option>   
             </select>
 
-           <label for="00N5g00000iX0ow" class="required">Internship Looking for</label>
-<select id="00N5g00000iX0ow" name="00N5g00000iX0ow" required>
-    <option value="">--Select Designation--</option>
-<option value="Salesforce Intern">Salesforce Intern</option>
-<option value="Front-end Developer Intern">Front-end Developer Intern</option>
-<option value="Back-end Developer Intern">Back-end Developer Intern</option>
-<option value="Web Developer Intern">Web Developer Intern</option>
-<option value="Digital Marketing Intern">Digital Marketing Intern</option>
-<option value="Data Science/AI/M.L Intern">Data Science/AI/M.L Intern</option>
-<option value="Cyber Security Intern">Cyber Security Intern</option>
-<option value="App Developer Intern">App Developer Intern</option>
-<option value="HR Intern">HR Intern</option>
-<option value="Short Film Maker/Ads Intern">Short Film Maker/Ads Intern</option>
-<option value="Content Writer Intern">Content Writer Intern</option>
-<option value="Social Media Intern">Social Media Intern</option>
-<option value="Business Development Intern">Business Development Intern</option>
-<option value="UI/UX Developer Intern">UI/UX Developer Intern</option>
-<option value="YouTube Intern">YouTube Intern</option>
-<option value="Graphic Designer Intern">Graphic Designer Intern</option>
-<option
-
- value="Video Editor Intern">Video Editor Intern</option>
-<option value="SEO Executive Intern">SEO Executive Intern</option>
-<option value="Sales Executive Intern">Sales Executive Intern</option>
-<option value="College Coordinator Intern">College Coordinator Intern</option>
-<option value="Event Manager Intern">Event Manager Intern</option>
-<option value="Full Stack Developer Intern">Full Stack Developer Intern</option>
-<option value="Android Developer Intern">Android Developer Intern</option>
+            <label for="00N5g00000iX0ow" class="required">Internship Looking for</label>
+            <select id="00N5g00000iX0ow" name="00N5g00000iX0ow" required>
+                <option value="">--Select Designation--</option>
+                <option value="Salesforce Intern">Salesforce Intern</option>
+                <option value="Front-end Developer Intern">Front-end Developer Intern</option>
+                <option value="Back-end Developer Intern">Back-end Developer Intern</option>
+                <option value="Web Developer Intern">Web Developer Intern</option>
+                <option value="Digital Marketing Intern">Digital Marketing Intern</option>
+                <option value="Data Science/AI/M.L Intern">Data Science/AI/M.L Intern</option>
+                <option value="Cyber Security Intern">Cyber Security Intern</option>
+                <option value="App Developer Intern">App Developer Intern</option>
+                <option value="HR Intern">HR Intern</option>
+                <option value="Short Film Maker/Ads Intern">Short Film Maker/Ads Intern</option>
+                <option value="Content Writer Intern">Content Writer Intern</option>
+                <option value="Social Media Intern">Social Media Intern</option>
+                <option value="Business Development Intern">Business Development Intern</option>
+                <option value="Graphic Designer Intern">Graphic Designer Intern</option>
+                <option value="Full Stack Developer Intern">Full Stack Developer Intern</option>
+                <option value="Android Developer Intern">Android Developer Intern</option>
 <option value="IOS Developer Intern">IOS Developer Intern</option>
 <option value="Devops Developer Intern">Devops Developer Intern</option>
-    </select>
-
-<label for="title">Title</label>
+            </select>
+            
+            <label for="title">Title</label>
 <select id="title" name="title" title="Title">
     <option value="">--None--</option>
     <option value="HOD">HOD</option>
@@ -472,7 +471,13 @@
     <option value="COO">COO</option>
 </select>
 
-<label for="00NJ1000000ZoiN">Partner</label>
+            <label for="00NJ1000000aheU" class="required">TPO Professor Name</label>
+<input id="00NJ1000000aheU" maxlength="80" name="00NJ1000000aheU" type="text" required>
+
+            <label for="00NJ1000000aheZ" class="required">TPO Professor Number</label>
+            <input id="00NJ1000000aheZ" maxlength="15" name="00NJ1000000aheZ" type="text" required>
+
+           <label for="00NJ1000000ZoiN">Partner</label>
 <input id="00NJ1000000ZoiN" maxlength="200" name="00NJ1000000ZoiN" size="20" type="text">
 
             
@@ -482,8 +487,9 @@
                     <input id="00N5g00000iX0oh" name="00N5g00000iX0oh" type="checkbox" value="1">
                 </label>
             </div>
+
             <!-- Submit Button -->
-            <input type="submit" value="Submit">
+            <input type="submit" name="submit" value="Submit">
         </form>
     </div>
 </body>
